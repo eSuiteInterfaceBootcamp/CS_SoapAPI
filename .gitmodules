@@ -1,0 +1,3 @@
+[submodule "eSuiteApiWrapper"]
+	path = eSuiteApiWrapper
+	url = git@github.com:eSuiteInterfaceBootcamp/CS_eSuiteApiWrapper.git
