@@ -76,7 +76,19 @@ namespace SoapToRest
                                 if (chargeJson != null)
                                     _eSuiteApi.InsertData("entities/charge", chargeJson);
                             }
+                            else
+                            {
+                                throw new Exception("Party insert failed");
+                            }
                         }
+                        else
+                        {
+                            throw new Exception("Case insert failed");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Person insert failed");
                     }
                 }
             }

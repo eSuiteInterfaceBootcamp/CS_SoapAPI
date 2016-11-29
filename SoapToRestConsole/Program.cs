@@ -46,15 +46,14 @@ namespace SoapToRestConsole
             Console.Write("Enter your eCourt password (not hidden): ");
             string eC_pass = Console.ReadLine();
 
-
+            string authToken = TicketImport.GetEcourtUserAuthToken(eC_user, eC_pass);
             TicketImport _ticketImport = new TicketImport(
                 "https://customdev.journaltech.com/api/soap/TicketAPI.svc?wsdl",
                 src_user,
                 src_pass,
                 eC_URL,
-                TicketImport.GetEcourtUserAuthToken(eC_user, eC_pass)
+                authToken
             );
-
 
             Console.WriteLine();
             Console.Write("Ready to roll! Press any key to import all new tickets... ");
@@ -63,7 +62,8 @@ namespace SoapToRestConsole
 
             _ticketImport.ImportNewTickets();
 
-            Console.WriteLine("Complete!");
+            Console.Write("Complete! Press any key to exit... ");
+            Console.ReadKey();
         }
     }
 }
